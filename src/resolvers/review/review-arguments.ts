@@ -36,6 +36,7 @@ export class EditReviewInput {
   opinion?: string;
 
   @Field({nullable: true})
+  
   @MaxLength(30)
   bookTitle?: string;
 
