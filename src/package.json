@@ -42,10 +42,10 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Yordanka2/GraphQl.git"
+    "url": "git+https://github.com/Yordanka2/graph-ql2.git"
   },
   "bugs": {
-    "url": "https://github.com/Yordanka2/GraphQl/issues"
+    "url": "https://github.com/Yordanka2/graph-ql2/issues"
   },
-  "homepage": "https://github.com/Yordanka2/GraphQl#readme"
+  "homepage": "https://github.com/Yordanka2/graph-ql2#readme"
 }
