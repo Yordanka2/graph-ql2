@@ -5,14 +5,19 @@ import { MaxLength, MinLength, IsEmail } from "class-validator";
 
 @InputType()
 export class BaseReviewInput {
+  
+  @Field()
+  reviewAuthor: string;
+
   @Field()
   bookAuthor: string;
 
   @Field()
-  opinion: string;
+  bookTitle: string;
 
   @Field()
-  bookTitle: string;
+  opinionForBook: string;
+
 
   @Field()
   rating: string;
@@ -29,16 +34,24 @@ export class EditReviewInput {
 
   @Field({nullable: true})
   @MaxLength(30)
+  reviewAuthor?: string;
+
+
+
+
+  @Field({nullable: true})
+  @MaxLength(30)
   bookAuthor?: string;
 
-  @Field({nullable: true})
-  @MaxLength(50)
-  opinion?: string;
-
-  @Field({nullable: true})
-  
+  @Field({nullable: true}) 
   @MaxLength(30)
   bookTitle?: string;
+
+
+  @Field({nullable: true})
+  @MaxLength(100)
+  opinionForBook?: string;
+
 
   @Field({nullable: true})
   @MinLength(1)

@@ -13,17 +13,20 @@ export class Book {
   @Field()
   title: string;
 
-  @Prop({required: true})
-  @Field()
-  description: string;
-
+ 
   @Prop({required: true})
   @Field()
   author: string;
 
+
   @Prop({required: true})
   @Field()
-  rating: string;
+  genre: string;
+  
+  @Prop({required: true})
+  @Field()
+  shortDescription: string;
+
 }
 
 export const BookModel = getModelForClass(Book, { schemaOptions: { timestamps: true }})

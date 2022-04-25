@@ -5,23 +5,24 @@
 
 input BaseBookInput {
   author: String!
-  description: String!
-  rating: String!
+  genre: String!
+  shortDescription: String!
   title: String!
 }
 
 input BaseReviewInput {
   bookAuthor: String!
   bookTitle: String!
-  opinion: String!
+  opinionForBook: String!
   rating: String!
+  reviewAuthor: String!
 }
 
 type Book {
   _id: ObjectId!
   author: String!
-  description: String!
-  rating: String!
+  genre: String!
+  shortDescription: String!
   title: String!
 }
 
@@ -34,16 +35,17 @@ input CreateUserInput {
 
 input EditBookInput {
   author: String
-  description: String
-  rating: String
+  genre: String
+  shortDescription: String
   title: String
 }
 
 input EditReviewInput {
   bookAuthor: String
   bookTitle: String
-  opinion: String
+  opinionForBook: String
   rating: String
+  reviewAuthor: String
 }
 
 input EditUserInput {
@@ -64,6 +66,8 @@ type Mutation {
   editReview(_id: String!, data: EditReviewInput!): Review!
   editUser(_id: String!, data: EditUserInput!): User!
   login(email: String!, password: String!): String!
+  searchBy(_id: String!): Review!
+  searchByName(reviewAuthor: String!): Review!
 }
 
 """Mongo object id scalar type"""
@@ -83,8 +87,9 @@ type Review {
   _id: ObjectId!
   bookAuthor: String!
   bookTitle: String!
-  opinion: String!
+  opinionForBook: String!
   rating: String!
+  reviewAuthor: String!
 }
 
 type User {

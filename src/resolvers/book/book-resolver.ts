@@ -23,11 +23,14 @@ export class BookResolver {
     return newUser
   }
 
-  // @Authorized([UserRoles.ADMIN, UserRoles.SUPER_ADMIN])
+  
   @Mutation(returns => Book)
   async deleteBook(@Arg("_id") _id: string):Promise<Book> {
     return await BookModel.findByIdAndRemove(_id);
   }
+
+
+
 
   @Mutation(returns => Book)
   async editBook(@Arg("_id") _id: string, @Arg("data") data: EditBookInput):Promise<Book> {

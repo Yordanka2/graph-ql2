@@ -11,6 +11,10 @@ export class Review {
 
   @Prop({required: true})
   @Field()
+  reviewAuthor: string;
+
+  @Prop({required: true})
+  @Field()
   bookAuthor: string;
 
   @Prop({required: true})
@@ -19,7 +23,7 @@ export class Review {
 
   @Prop({required: true})
   @Field()
-  opinion: string;
+  opinionForBook: string;
 
 
   @Prop({required: true})

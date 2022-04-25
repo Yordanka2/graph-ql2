@@ -9,13 +9,16 @@ export class BaseBookInput {
   title: string;
 
   @Field()
-  description: string;
-
-  @Field()
   author: string;
-
+  
+  
   @Field()
-  rating: string;
+  shortDescription: string;
+
+  
+  @Field()
+  genre: string;
+
 }
 
 @InputType()
@@ -32,14 +35,17 @@ export class EditBookInput {
   title?: string;
 
   @Field({nullable: true})
-  @MaxLength(50)
-  description?: string;
-
-  @Field({nullable: true})
   @MaxLength(30)
   author?: string;
 
+
   @Field({nullable: true})
-  @MinLength(1)
-  rating?: string;
+  @MaxLength(100)
+  shortDescription?: string;
+
+
+  @Field({nullable: true})
+  @MaxLength(15)
+  genre: string;
+
 }

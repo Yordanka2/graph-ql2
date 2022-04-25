@@ -30,6 +30,14 @@ export class ReviewResolver {
     return await ReviewModel.findByIdAndRemove(_id);
   }
 
+
+  @Mutation(returns => Review)
+  async searchBy(@Arg("_id") _id: string):Promise<Review> {
+    return await ReviewModel.findById(_id);
+  } 
+ 
+ 
+
   @Mutation(returns => Review)
   async editReview(@Arg("_id") _id: string, @Arg("data") data: EditReviewInput):Promise<Review> {
     const reviewData = data
