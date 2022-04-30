@@ -16,6 +16,10 @@ export class ReviewResolver {
     return await ReviewModel.findById(_id);
   }
 
+  @Mutation(returns => Review)
+  async searchByID(@Arg("_id") _id: string):Promise<Review> {
+    return await ReviewModel.findById(_id);
+  }
 
   @Mutation(returns => Review)
   async createReview(@Arg("data") data: BaseReviewInput):Promise<Review> {

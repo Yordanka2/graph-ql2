@@ -30,6 +30,11 @@ export class BookResolver {
   }
 
   @Mutation(returns => Book)
+  async searchBy(@Arg("_id") _id: string):Promise<Book> {
+    return await BookModel.findById(_id);
+  }
+    
+  @Mutation(returns => Book)
   async editBook(@Arg("_id") _id: string, @Arg("data") data: EditBookInput):Promise<Book> {
     const bookData = data
     return await BookModel.findByIdAndUpdate(_id, bookData, {new: true});

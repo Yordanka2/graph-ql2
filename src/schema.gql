@@ -64,6 +64,8 @@ type Mutation {
   editReview(_id: String!, data: EditReviewInput!): Review!
   editUser(_id: String!, data: EditUserInput!): User!
   login(email: String!, password: String!): String!
+  searchBy(_id: String!): Book!
+  searchByID(_id: String!): Review!
 }
 
 """Mongo object id scalar type"""
