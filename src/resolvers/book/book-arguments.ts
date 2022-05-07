@@ -16,6 +16,9 @@ export class BaseBookInput {
 
   @Field()
   rating: string;
+
+  @Field()
+  genre: string;
 }
 
 @InputType()
