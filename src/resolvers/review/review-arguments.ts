@@ -15,7 +15,7 @@ export class BaseReviewInput {
   bookTitle: string;
 
   @Field()
-  rating: string;
+  rating: number;
 }
 
 @InputType()

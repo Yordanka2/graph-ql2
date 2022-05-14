@@ -1,6 +1,8 @@
 import { Field, InputType } from "type-graphql";
 import { ObjectId } from "mongodb";
 import { MaxLength, MinLength, IsEmail } from "class-validator";
+import {Review} from "../../entities/review-entity";
+import {ReviewInput} from "../review/review-arguments";
 
 
 @InputType()
@@ -15,10 +17,13 @@ export class BaseBookInput {
   author: string;
 
   @Field()
-  rating: string;
+  rating: number;
 
   @Field()
   genre: string;
+
+  @Field()
+  image: string;
 }
 
 @InputType()
@@ -45,4 +50,7 @@ export class EditBookInput {
   @Field({nullable: true})
   @MinLength(1)
   rating?: string;
+
+  @Field(type => [ReviewInput])
+  reviews?: Review[];
 }
