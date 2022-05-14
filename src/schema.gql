@@ -97,4 +97,5 @@ type User {
   lastLogin: Float!
   lastName: String!
   password: String!
+  roles: [String!]!
 }

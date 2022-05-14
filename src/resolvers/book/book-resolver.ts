@@ -1,6 +1,7 @@
 import { Resolver, Query, Mutation, Arg, Authorized } from "type-graphql";
 import { Book, BookModel } from "../../entities/book-entity";
 import {BaseBookInput , BookInput, EditBookInput} from "../book/book-arguments";
+import {UserRoles} from "../user/user-roles";
 
 
 @Resolver()

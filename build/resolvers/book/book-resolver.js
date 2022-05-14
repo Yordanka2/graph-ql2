@@ -28,9 +28,11 @@ let BookResolver = class BookResolver {
         await newUser.save();
         return newUser;
     }
-    // @Authorized([UserRoles.ADMIN, UserRoles.SUPER_ADMIN])
     async deleteBook(_id) {
         return await book_entity_1.BookModel.findByIdAndRemove(_id);
+    }
+    async searchBy(_id) {
+        return await book_entity_1.BookModel.findById(_id);
     }
     async editBook(_id, data) {
         const bookData = data;
@@ -51,6 +53,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], BookResolver.prototype, "book", null);
 __decorate([
+    (0, type_graphql_1.Authorized)([UserRoles.ADMIN, UserRoles.SUPER_ADMIN]),
     (0, type_graphql_1.Mutation)(returns => book_entity_1.Book),
     __param(0, (0, type_graphql_1.Arg)("data")),
     __metadata("design:type", Function),
@@ -58,6 +61,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], BookResolver.prototype, "createBook", null);
 __decorate([
+    (0, type_graphql_1.Authorized)([UserRoles.ADMIN, UserRoles.SUPER_ADMIN]),
     (0, type_graphql_1.Mutation)(returns => book_entity_1.Book),
     __param(0, (0, type_graphql_1.Arg)("_id")),
     __metadata("design:type", Function),
@@ -65,6 +69,14 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], BookResolver.prototype, "deleteBook", null);
 __decorate([
+    (0, type_graphql_1.Mutation)(returns => book_entity_1.Book),
+    __param(0, (0, type_graphql_1.Arg)("_id")),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], BookResolver.prototype, "searchBy", null);
+__decorate([
+    (0, type_graphql_1.Authorized)([UserRoles.ADMIN, UserRoles.SUPER_ADMIN]),
     (0, type_graphql_1.Mutation)(returns => book_entity_1.Book),
     __param(0, (0, type_graphql_1.Arg)("_id")),
     __param(1, (0, type_graphql_1.Arg)("data")),
