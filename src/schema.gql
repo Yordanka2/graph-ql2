@@ -6,6 +6,7 @@
 input BaseBookInput {
   author: String!
   description: String!
+  genre: String!
   rating: String!
   title: String!
 }

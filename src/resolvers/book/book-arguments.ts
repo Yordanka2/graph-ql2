@@ -35,7 +35,7 @@ export class EditBookInput {
   title?: string;
 
   @Field({nullable: true})
-  @MaxLength(50)
+  @MaxLength(300)
   description?: string;
 
   @Field({nullable: true})
