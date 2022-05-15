@@ -15,7 +15,11 @@ export class BaseReviewInput {
   bookTitle: string;
 
   @Field()
-  rating: string;
+  rating: number;
+
+  @Field({nullable: true})
+  @MaxLength(30)
+  createBy?: string;
 }
 
 @InputType()
@@ -42,4 +46,8 @@ export class EditReviewInput {
   @Field({nullable: true})
   @MinLength(1)
   rating?: string;
+
+  @Field({nullable: true})
+  @MaxLength(30)
+  createBy?: string;
 }

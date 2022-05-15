@@ -1,7 +1,7 @@
- 
 import { ObjectType, InputType, Field } from "type-graphql";
 import { prop as Prop, getModelForClass } from "@typegoose/typegoose"
 import { ObjectId } from "mongodb"
+import {Review} from "./review-entity";
 
 @ObjectType()
 export class Book {
@@ -23,7 +23,15 @@ export class Book {
 
   @Prop({required: true})
   @Field()
-  rating: string;
+  rating: number;
+
+  @Prop({required: true})
+  @Field()
+  image: string;
+
+  @Field(type => [Review])
+  @Prop({default: []})
+  reviews?: Review[]
 }
 
 export const BookModel = getModelForClass(Book, { schemaOptions: { timestamps: true }})

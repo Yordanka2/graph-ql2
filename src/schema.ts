@@ -7,6 +7,7 @@ import { TypegooseMiddleware } from "./typegoose-middleware";
 import {ObjectId} from "mongodb";
 import { ObjectIdScalar } from "./object-id.scalar";
 import * as path from "path"
+import {authChecker} from "./resolvers/auth/auth-checker";
 
 export const getSchema = async () => {
     const schema = await buildSchema({
@@ -22,6 +23,7 @@ export const getSchema = async () => {
         globalMiddlewares: [TypegooseMiddleware],
         // use ObjectId scalar mapping
         scalarsMap: [{ type: ObjectId, scalar: ObjectIdScalar }],
+        authChecker,
       });
     return schema
 }

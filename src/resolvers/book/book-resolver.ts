@@ -1,6 +1,7 @@
 import { Resolver, Query, Mutation, Arg, Authorized } from "type-graphql";
 import { Book, BookModel } from "../../entities/book-entity";
 import {BaseBookInput , BookInput, EditBookInput} from "../book/book-arguments";
+import {UserRoles} from "../user/user-roles";
 
 
 @Resolver()
@@ -15,7 +16,7 @@ export class BookResolver {
   async book(@Arg("_id") _id: string):Promise<Book> {
     return await BookModel.findById(_id);
   }
-  @Authorized([UserRoles.ADMIN, UserRoles.SUPER_ADMIN])
+  // @Authorized([UserRoles.ADMIN, UserRoles.SUPER_ADMIN])
   @Mutation(returns => Book)
   async createBook(@Arg("data") data: BaseBookInput):Promise<Book> {
     const newUser = new BookModel(data);
@@ -23,7 +24,7 @@ export class BookResolver {
     return newUser
   }
 
-  @Authorized([UserRoles.ADMIN, UserRoles.SUPER_ADMIN])
+  // @Authorized([UserRoles.ADMIN, UserRoles.SUPER_ADMIN])
   @Mutation(returns => Book)
   async deleteBook(@Arg("_id") _id: string):Promise<Book> {
     return await BookModel.findByIdAndRemove(_id);
@@ -41,5 +42,3 @@ export class BookResolver {
   }
  
 }
-
-

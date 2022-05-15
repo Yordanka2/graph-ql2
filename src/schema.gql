@@ -7,22 +7,26 @@ input BaseBookInput {
   author: String!
   description: String!
   genre: String!
-  rating: String!
+  image: String!
+  rating: Float!
   title: String!
 }
 
 input BaseReviewInput {
   bookAuthor: String!
   bookTitle: String!
+  createBy: String
   opinion: String!
-  rating: String!
+  rating: Float!
 }
 
 type Book {
   _id: ObjectId!
   author: String!
   description: String!
-  rating: String!
+  image: String!
+  rating: Float!
+  reviews: [Review!]!
   title: String!
 }
 
@@ -37,12 +41,14 @@ input EditBookInput {
   author: String
   description: String
   rating: String
+  reviews: [ReviewInput!]!
   title: String
 }
 
 input EditReviewInput {
   bookAuthor: String
   bookTitle: String
+  createBy: String
   opinion: String
   rating: String
 }
@@ -87,7 +93,16 @@ type Review {
   bookAuthor: String!
   bookTitle: String!
   opinion: String!
-  rating: String!
+  rating: Float!
+}
+
+input ReviewInput {
+  _id: ObjectId!
+  bookAuthor: String!
+  bookTitle: String!
+  createBy: String
+  opinion: String!
+  rating: Float!
 }
 
 type User {
@@ -97,4 +112,5 @@ type User {
   lastLogin: Float!
   lastName: String!
   password: String!
+  roles: [String!]!
 }
