@@ -31,6 +31,10 @@ __decorate([
     (0, type_graphql_1.Field)(),
     __metadata("design:type", String)
 ], BaseBookInput.prototype, "rating", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", String)
+], BaseBookInput.prototype, "genre", void 0);
 BaseBookInput = __decorate([
     (0, type_graphql_1.InputType)()
 ], BaseBookInput);
@@ -54,7 +58,7 @@ __decorate([
 ], EditBookInput.prototype, "title", void 0);
 __decorate([
     (0, type_graphql_1.Field)({ nullable: true }),
-    (0, class_validator_1.MaxLength)(50),
+    (0, class_validator_1.MaxLength)(300),
     __metadata("design:type", String)
 ], EditBookInput.prototype, "description", void 0);
 __decorate([

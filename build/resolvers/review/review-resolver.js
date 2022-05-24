@@ -23,6 +23,9 @@ let ReviewResolver = class ReviewResolver {
     async review(_id) {
         return await review_entity_1.ReviewModel.findById(_id);
     }
+    async searchByID(_id) {
+        return await review_entity_1.ReviewModel.findById(_id);
+    }
     async createReview(data) {
         const newUser = new review_entity_1.ReviewModel(data);
         await newUser.save();
@@ -49,6 +52,13 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], ReviewResolver.prototype, "review", null);
+__decorate([
+    (0, type_graphql_1.Mutation)(returns => review_entity_1.Review),
+    __param(0, (0, type_graphql_1.Arg)("_id")),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], ReviewResolver.prototype, "searchByID", null);
 __decorate([
     (0, type_graphql_1.Mutation)(returns => review_entity_1.Review),
     __param(0, (0, type_graphql_1.Arg)("data")),
