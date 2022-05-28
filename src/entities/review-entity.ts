@@ -24,6 +24,10 @@ export class Review {
   @Prop({required: true})
   @Field()
   rating: number;
+  
+  @Prop({required: true})
+  @Field()
+  craeteBy: string;
 }
 
 export const ReviewModel = getModelForClass(Review, { schemaOptions: { timestamps: true }})
